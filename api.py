@@ -1,8 +1,8 @@
 """
-basic-service Python API (basic-service/api.R)
+bs2 Python API (bs2/api.R)
 Author: Peak AI
-Tenant: Peak
-Created: 2019-07-09
+Tenant: Default
+Created: 2019-01-22
 Template Version: 1
 """
 import json
@@ -31,15 +31,29 @@ def predict(body: str) -> str:
             "request": <user-request>,
             "parameters": {
                 "apikey": <tenant-api-key>,
-                "apiendpoint": <tenant-api-endpoint>,
-                "tenant": <tenant-name>
+                "apiendpoint": <tenant-api-endpoint>
             }
         }
         Where <user-request> is the _original_ request sent, <tenant-api-key> is the tenant's API
         key, and <tenant-api-endpoint> is the API endpoint for the tenant.
 
     """
+    data = json.loads(body)
 
-    data = "Hello, world!"
 
-    return json.dumps(dict(output=data))
+
+    return json.dumps(dict(output=sum(data.values())))
+
+
+#def index(**kwargs):
+    #request = kwargs.get('request')
+    #totalsum = sum(request.values())
+    #return {"summary": totalsum}
+
+
+#def adder(**numbers):
+    #for key, value in numbers.items():
+        #totalsum = sum(numbers.values())
+    #print(totalsum)
+
+
