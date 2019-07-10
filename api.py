@@ -39,7 +39,8 @@ def predict(body: str) -> str:
 
     """
     data = json.loads(body)
+    myinfo = data['request']
     addition = 0
-    for value in data.values():
+    for value in myinfo.values():
         addition = addition+value
     return json.dumps(dict(output=addition))
