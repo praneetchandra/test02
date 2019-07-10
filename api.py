@@ -38,36 +38,8 @@ def predict(body: str) -> str:
         key, and <tenant-api-endpoint> is the API endpoint for the tenant.
 
     """
-   
-
     data = json.loads(body)
-    sum = 0
+    addition = 0
     for value in data.values():
-        sum = sum + val
-    output = json.dumps(sum)
-    return output 
-
-
-
-    
-
-
-#def index(**kwargs):
-    #request = kwargs.get('request')
-    #totalsum = sum(request.values())
-    #return {"summary": totalsum}
-
-
-#def adder(**numbers):
-    #for key, value in numbers.items():
-        #totalsum = sum(numbers.values())
-    #print(totalsum)
-
-#data = json.loads(body)
-#return json.dumps(dict(output=sum(data.values())))
-
-  #data = json.loads(body)
-    #for key, value in data.items():
-     #   totalsum = sum(data.values())
-    #output = json.dumps(totalsum)
-    #return output
+        addition = addition+value
+    return json.dumps(dict(output=addition))
