@@ -39,10 +39,14 @@ def predict(body: str) -> str:
 
     """
     data = json.loads(body)
+    for key, value in data.items():
+        totalsum = sum(data.values())
+    output = json.dumps(totalsum)
+    return output 
 
 
 
-    return json.dumps(dict(output=sum(data.values())))
+    
 
 
 #def index(**kwargs):
@@ -56,4 +60,6 @@ def predict(body: str) -> str:
         #totalsum = sum(numbers.values())
     #print(totalsum)
 
+#data = json.loads(body)
+#return json.dumps(dict(output=sum(data.values())))
 
